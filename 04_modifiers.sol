@@ -2,7 +2,28 @@
 
 pragma solidity >=0.8.2 <0.9.0;
 
+/*
+    Modifiers
+    ---------
+    Modifiers are special functions that change a function's behavior, letting you add common checks (like access control, input validation) or logic before/after the 
+    main function runs, reducing code duplication and improving security, using the modifier keyword and _; to insert the original function's code, with built-in ones 
+    like view, pure, and payable. 
 
+    e.g
+    contract Test {
+        address public owner;
+        constructor() {
+            owner = msg.sender;
+        }
+        modifier onlyOwner() {
+            require(mesg.sender == owner, "You are not the owner");    
+            _; // this tells solidity that where your other logic runs
+        }
+        function changeOwner(address newOwner) public onlyOwner {
+            owner = newOwner;
+        }
+    }
+*/
 contract PausableToken {
     address public owner;
     bool public paused;
